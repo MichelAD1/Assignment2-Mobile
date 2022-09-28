@@ -37,10 +37,12 @@ public class FetchNews extends AppCompatActivity {
         try{
 
             SQLiteDatabase sql = this.openOrCreateDatabase("newsdb", MODE_PRIVATE, null);
-            sql.execSQL("CREATE Table IF NOT EXISTS news (news_name VARCHAR, author VARCHAR, published_at DATE, location VARCHAR, description TEXT)");
-//            sql.execSQL("INSERT INTO news(news_name, author) VALUES ('Death of her', 'Doe')");
-
-//            sql.execSQL("DELETE FROM news where author = 'Doe'");
+            sql.execSQL("CREATE Table IF NOT EXISTS news (news_name VARCHAR, author VARCHAR)");
+//            , published_at DATE, location VARCHAR, description TEXT
+//            ,published_at,location,description
+//            ,'2010/03/03','Jbeil','When she is born, fire will reign')");
+            //sql.execSQL("INSERT INTO news(news_name, author) VALUES ('Birthjh of rhaenyra', 'Doe')");
+            //sql.execSQL("DELETE FROM news where author = 'Doe'");
 
 
             Cursor c = sql.rawQuery("Select * from news", null);
@@ -48,15 +50,15 @@ public class FetchNews extends AppCompatActivity {
             c.moveToFirst();
 
             while(c!= null){
-                String news_name = c.getString(n_nameIndex) + " ";
-                the_list.add(news_name);
+                String news_name_n = c.getString(n_nameIndex) + " ";
+                the_list.add(news_name_n);
                 c.moveToNext();
             }
         }catch(Exception e){
             e.printStackTrace();
         }
 
-        adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,the_list);
+        adapter=new ArrayAdapter<String>(getApplicationContext(), R.layout.text_color_layout,the_list);
         my_list.setAdapter(adapter);
         my_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
