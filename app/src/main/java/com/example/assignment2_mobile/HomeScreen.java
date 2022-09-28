@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class HomeScreen extends AppCompatActivity {
     int count=0;
@@ -21,9 +22,7 @@ public class HomeScreen extends AppCompatActivity {
     public void go(View v){
         EditText name= (EditText) findViewById(R.id.name);
         String name_val=name.getText().toString();
-        if(!isNameSaved()){
-            saveName(name);
-        }
+        saveName(name);
         Intent i= new Intent(getApplicationContext(),FetchNews.class);
         i.putExtra("name",name_val);
         startActivity(i);
@@ -33,9 +32,5 @@ public class HomeScreen extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("NAME", text.getText().toString());
         editor.apply();
-    }
-    public boolean isNameSaved() {
-        SharedPreferences sharedPref = getSharedPreferences("application", Context.MODE_PRIVATE);
-        return sharedPref.contains("NAME");
     }
 }
