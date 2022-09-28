@@ -1,7 +1,6 @@
 package com.example.assignment2_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class AddNews extends AppCompatActivity {

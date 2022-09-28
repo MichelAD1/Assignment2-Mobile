@@ -7,28 +7,16 @@
     android:background="@drawable/newsbg"
     tools:context=".NewsDetails">
 
-    <TextView
-        android:id="@+id/newsR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10sp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="657dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="550dp"
-        android:background="#30ffffff"
-        android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawablePadding="20sp"
-        android:hint="news: "
-        android:inputType="text"
-        android:padding="20sp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+    <ListView
+        android:id="@+id/my_list_2"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="4dp"
+        android:dividerHeight="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
-
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
