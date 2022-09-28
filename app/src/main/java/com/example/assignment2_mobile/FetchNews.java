@@ -66,4 +66,6 @@ public class FetchNews extends AppCompatActivity {
             }
         });
     }
+
+    
 }
