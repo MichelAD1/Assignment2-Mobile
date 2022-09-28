@@ -38,16 +38,18 @@ public class FetchNews extends AppCompatActivity {
 
             SQLiteDatabase sql = this.openOrCreateDatabase("newsdb", MODE_PRIVATE, null);
             sql.execSQL("CREATE Table IF NOT EXISTS news (news_name VARCHAR, author VARCHAR, published_at TEXT, location VARCHAR, description TEXT)");
-            //sql.execSQL("INSERT INTO news(news_name, author,published_at,location,description) VALUES ('Birthg of rhaenyra', 'Doe','2010-03-03','Jbeil','When she is born, fire will reign')");
             //sql.execSQL("DELETE FROM news where author = 'Doe'");
             Cursor c = sql.rawQuery("Select * from news", null);
             int n_nameIndex = c.getColumnIndex("news_name");
             c.moveToFirst();
-
-            while(c!= null){
-                String news_name_n = c.getString(n_nameIndex) + " ";
-                the_list.add(news_name_n);
-                c.moveToNext();
+            if(c==null){
+                Toast.makeText(this,"null", Toast.LENGTH_SHORT).show();
+            }else{
+                while(c!= null){
+                    String news_name_n = c.getString(n_nameIndex) + " ";
+                    the_list.add(news_name_n);
+                    c.moveToNext();
+                }
             }
         }catch(Exception e){
             e.printStackTrace();

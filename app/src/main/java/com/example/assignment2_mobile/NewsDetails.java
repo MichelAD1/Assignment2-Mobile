@@ -29,7 +29,6 @@ public class NewsDetails extends AppCompatActivity {
         String news_name_i=intent.getStringExtra("news_name");
 
         try{
-
             SQLiteDatabase sql = this.openOrCreateDatabase("newsdb", MODE_PRIVATE, null);
             sql.execSQL("CREATE Table IF NOT EXISTS news (news_name VARCHAR, author VARCHAR, published_at TEXT, location VARCHAR, description TEXT)");
             Cursor c = sql.rawQuery("Select * from news where TRIM(news_name) = '"+news_name_i.trim()+"'", null);
