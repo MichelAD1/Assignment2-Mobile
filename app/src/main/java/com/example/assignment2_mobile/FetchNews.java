@@ -33,17 +33,15 @@ public class FetchNews extends AppCompatActivity {
 
         my_list= findViewById(R.id.my_list);
         the_list=new ArrayList<String>();
-
         try{
 
             SQLiteDatabase sql = this.openOrCreateDatabase("newsdb", MODE_PRIVATE, null);
             sql.execSQL("CREATE Table IF NOT EXISTS news (news_name VARCHAR, author VARCHAR, published_at TEXT, location VARCHAR, description TEXT)");
-            //sql.execSQL("DELETE FROM news where author = 'Doe'");
             Cursor c = sql.rawQuery("Select * from news", null);
             int n_nameIndex = c.getColumnIndex("news_name");
             c.moveToFirst();
-            if(c==null){
-                Toast.makeText(this,"null", Toast.LENGTH_SHORT).show();
+            if(c.getCount()==0){
+                Toast.makeText(this, "No News Yet", Toast.LENGTH_SHORT).show();
             }else{
                 while(c!= null){
                     String news_name_n = c.getString(n_nameIndex) + " ";
