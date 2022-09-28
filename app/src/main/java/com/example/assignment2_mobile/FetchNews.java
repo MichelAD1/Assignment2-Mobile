@@ -67,5 +67,8 @@ public class FetchNews extends AppCompatActivity {
         });
     }
 
-    
+    public void addNews(View v){
+        Intent intent= new Intent(getApplicationContext(),AddNews.class);
+        startActivity(intent);
+    }
 }
